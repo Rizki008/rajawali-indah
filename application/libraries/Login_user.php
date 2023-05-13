@@ -34,7 +34,7 @@ class Login_User
 			if ($level_user === '1') {
 				redirect('admin');
 			} elseif ($level_user === '2') {
-				redirect('pemilik');
+				redirect('gudang');
 			} elseif ($level_user === '3') {
 				redirect('supplier');
 			}
