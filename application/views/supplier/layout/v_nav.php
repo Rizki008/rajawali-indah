@@ -18,12 +18,12 @@
 				</li>
 				<li>
 					<a href="<?= base_url('kirim') ?>" class="dropdown-toggle no-arrow">
-						<span class="micon dw dw-invoice"></span><span class="mtext">List Barang</span>
+						<span class="micon dw dw-book"></span><span class="mtext">List Barang</span>
 					</a>
 				</li>
 				<li>
 					<a href="<?= base_url('status_barang') ?>" class="dropdown-toggle no-arrow">
-						<span class="micon dw dw-invoice"></span><span class="mtext">Pengiriman Barang</span>
+						<span class="micon dw dw-paper-plane"></span><span class="mtext">Pengiriman Barang</span>
 					</a>
 				</li>
 			</ul>
