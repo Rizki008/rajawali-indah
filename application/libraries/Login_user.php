@@ -21,14 +21,14 @@ class Login_User
 			$nama_user = $cek->nama_user;
 			$username = $cek->username;
 			$password = $cek->password;
-			$status = $cek->status;
+			$status_user = $cek->status_user;
 			$level_user = $cek->level_user;
 
 			$this->ci->session->set_userdata('id_user', $id_user);
 			$this->ci->session->set_userdata('nama_user', $nama_user);
 			$this->ci->session->set_userdata('username', $username);
 			$this->ci->session->set_userdata('password', $password);
-			$this->ci->session->set_userdata('status', $status);
+			$this->ci->session->set_userdata('status_user', $status_user);
 			$this->ci->session->set_userdata('level_user', $level_user);
 
 			if ($level_user === '1') {
@@ -58,7 +58,7 @@ class Login_User
 		$this->ci->session->unset_userdata('nama_user');
 		$this->ci->session->unset_userdata('username');
 		$this->ci->session->set_userdata('password');
-		$this->ci->session->set_userdata('status');
+		$this->ci->session->set_userdata('status_user');
 		$this->ci->session->unset_userdata('level_user');
 		$this->ci->session->set_flashdata('pesan', 'Berhasil LogOut!!!!');
 		redirect('auth/login');
