@@ -60,7 +60,7 @@
 				<div class="form-group row">
 					<label class="col-sm-12 col-md-2 col-form-label">Kategori</label>
 					<div class="col-sm-12 col-md-10">
-						<select class="custom-select col-12" name="id_kategori">
+						<select class="custom-select col-12" name="id_kategori" required>
 							<option selected="">Kategori...</option>
 							<?php foreach ($kategori as $key => $value) { ?>
 								<option value="<?= $value->id_kategori ?>"><?= $value->kategori_barang ?></option>
