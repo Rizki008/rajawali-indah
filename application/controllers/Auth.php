@@ -107,6 +107,11 @@ class Auth extends CI_Controller
 			redirect('auth/login');
 		}
 	}
+
+	public function logout()
+	{
+		$this->login_user->logout();
+	}
 }
 
 /* End of file Auth.php */
