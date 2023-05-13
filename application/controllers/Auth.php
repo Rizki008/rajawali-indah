@@ -100,7 +100,7 @@ class Auth extends CI_Controller
 				'username' => $this->input->post('username'),
 				'password' => $this->input->post('password'),
 				'level_user' => '3',
-				'status' => '1',
+				'status_user' => '1',
 			);
 			$this->m_auth->register($data);
 			$this->session->set_flashdata('pesan', 'Registrasi berhasil');
