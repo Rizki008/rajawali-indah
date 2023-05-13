@@ -10,7 +10,19 @@ class M_status extends CI_Model
 		$this->db->from('barang_masuk');
 		$this->db->join('barang', 'barang.id_barang = barang_masuk.id_barang', 'left');
 		$this->db->join('kategori', 'kategori.id_kategori = barang.id_kategori', 'left');
-		// $this->db->where('status=0');
+		$this->db->join('user', 'user.id_user = barang_masuk.id_user', 'left');
+		$this->db->where('barang_masuk.id_user', $this->session->userdata('id_user'));
+		$this->db->order_by('id_barang_masuk', 'desc');
+		return $this->db->get()->result();
+	}
+	public function masuk_admin()
+	{
+		$this->db->select('*');
+		$this->db->from('barang_masuk');
+		$this->db->join('barang', 'barang.id_barang = barang_masuk.id_barang', 'left');
+		$this->db->join('kategori', 'kategori.id_kategori = barang.id_kategori', 'left');
+		$this->db->join('user', 'user.id_user = barang_masuk.id_user', 'left');
+		// $this->db->where('barang_masuk.id_user', $this->session->userdata('id_user'));
 		$this->db->order_by('id_barang_masuk', 'desc');
 		return $this->db->get()->result();
 	}
