@@ -16,7 +16,7 @@ class Status_barang_admin extends CI_Controller
 	{
 		$data = array(
 			'title' => 'Status Barang Masuk',
-			'masuk' => $this->m_status->masuk(),
+			'masuk' => $this->m_status->masuk_admin(),
 			'isi' => 'admin/status/v_status'
 		);
 		$this->load->view('admin/layout/v_wrapper', $data, FALSE);
