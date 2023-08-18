@@ -11,7 +11,8 @@ class M_kirim extends CI_Model
 		$this->db->select('*');
 		$this->db->from('barang');
 		$this->db->join('kategori', 'kategori.id_kategori = barang.id_kategori', 'left');
-		$this->db->where('id_user', $this->session->userdata('id_user'));
+		$this->db->join('user', 'user.id_user = barang.id_user', 'left');
+		// $this->db->where('barang.id_user', $this->session->userdata('id_user'));
 		return $this->db->get()->result();
 	}
 

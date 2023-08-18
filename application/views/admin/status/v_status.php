@@ -27,10 +27,10 @@
 						<tr>
 							<th class="table-plus">Nama Barang</th>
 							<th>Kategori Barang</th>
-							<th>Jumlah Kirim</th>
+							<th>Jumlah Pesanan</th>
 							<th>Tanggal Proses</th>
 							<th>Status</th>
-							<th class="datatable-nosort">Actions</th>
+							<!-- <th class="datatable-nosort">Actions</th> -->
 						</tr>
 					</thead>
 					<tbody>
@@ -62,10 +62,8 @@
 								</td>
 								<td>
 									<div class="table-actions">
-										<?php if ($value->status == 0) { ?>
-											<a href="<?= base_url('status_barang_admin/konfirmasi/' . $value->id_barang_masuk) ?>" data-color="#265ed7"><i class="icon-copy dw dw-edit2"></i></a>
-										<?php } elseif ($value->status == 2) { ?>
-											<a href="<?= base_url('status_barang_admin/selesai/' . $value->id_barang_masuk) ?>" data-color="#265ed7"><i class="icon-copy dw dw-edit2"></i></a>
+										<?php if ($value->status == 2) { ?>
+											<a href="<?= base_url('status_barang_admin/selesai/' . $value->id_barang_masuk) ?>" data-color="#265ed7"><i class="fa fa-check-square"></i>Selesai</a>
 										<?php } ?>
 									</div>
 								</td>

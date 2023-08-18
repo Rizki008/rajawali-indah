@@ -11,7 +11,7 @@ class M_status extends CI_Model
 		$this->db->join('barang', 'barang.id_barang = barang_masuk.id_barang', 'left');
 		$this->db->join('kategori', 'kategori.id_kategori = barang.id_kategori', 'left');
 		$this->db->join('user', 'user.id_user = barang_masuk.id_user', 'left');
-		$this->db->where('barang_masuk.id_user', $this->session->userdata('id_user'));
+		$this->db->where('barang.id_user', $this->session->userdata('id_user'));
 		$this->db->order_by('id_barang_masuk', 'desc');
 		return $this->db->get()->result();
 	}

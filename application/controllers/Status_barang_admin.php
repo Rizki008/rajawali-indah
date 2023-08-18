@@ -30,7 +30,7 @@ class Status_barang_admin extends CI_Controller
 		);
 		$this->m_status->update_status($data);
 		$this->session->set_flashdata('pesan', 'Berhasil dikonfirmasi');
-		redirect('status_barang_admin');
+		redirect('status_barang');
 	}
 
 	public function selesai($id_barang_masuk)

@@ -21,7 +21,7 @@
 			</div>
 			<!-- Simple Datatable start -->
 			<div class="card-box pb-10">
-				<div class="h5 pd-20 mb-0">Recent Patient</div>
+				<!-- <div class="h5 pd-20 mb-0">Recent Patient</div> -->
 				<table class="data-table table nowrap">
 					<thead>
 						<tr>
@@ -55,16 +55,17 @@
 									<?php } elseif ($value->status == '1') { ?>
 										<span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">Dikonfirmasi</span>
 									<?php } elseif ($value->status == '2') { ?>
-										<span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">Kirim</span>
+										<span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">DiKirim</span>
 									<?php } elseif ($value->status == '3') { ?>
 										<span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">Selesai</span>
 									<?php } ?>
 								</td>
 								<td>
 									<div class="table-actions">
-										<?php if ($value->status == '1') { ?>
-											<a href="<?= base_url('status_barang/kirim/' . $value->id_barang_masuk) ?>" data-color="#265ed7"><i class="icon-copy dw dw-edit2"></i></a>
-											<!-- <a href="#" data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i></a> -->
+										<?php if ($value->status == '0') { ?>
+											<a href="<?= base_url('status_barang_admin/konfirmasi/' . $value->id_barang_masuk) ?>" data-color="#265ed7"><i class="fa fa-check-circle"></i>Konfirmasi</a>
+										<?php } elseif ($value->status == '1') { ?>
+											<a href="<?= base_url('status_barang/kirim/' . $value->id_barang_masuk) ?>" data-color="#265ed7"><i class="fa fa-send"></i>Kirim</a>
 										<?php } ?>
 									</div>
 								</td>

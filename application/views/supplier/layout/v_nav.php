@@ -16,14 +16,14 @@
 						<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
 					</a>
 				</li>
-				<li>
+				<!-- <li>
 					<a href="<?= base_url('kirim') ?>" class="dropdown-toggle no-arrow">
 						<span class="micon dw dw-book"></span><span class="mtext">List Barang</span>
 					</a>
-				</li>
+				</li> -->
 				<li>
 					<a href="<?= base_url('status_barang') ?>" class="dropdown-toggle no-arrow">
-						<span class="micon dw dw-paper-plane"></span><span class="mtext">Pengiriman Barang</span>
+						<span class="micon dw dw-paper-plane"></span><span class="mtext">Pesanan Barang</span>
 					</a>
 				</li>
 			</ul>

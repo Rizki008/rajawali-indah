@@ -31,7 +31,7 @@
 			<!-- Simple Datatable start -->
 			<div class="card-box mb-30">
 				<div class="pd-20">
-					<h4 class="text-blue h4">Data Table Simple</h4>
+					<h4 class="text-blue h4">Data Kategori</h4>
 					<p class="mb-0">Tambah Kategori Barang
 						<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Medium-modal" type="button">
 							<i class="fa fa-plus"></i></a>

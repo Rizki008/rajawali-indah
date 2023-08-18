@@ -17,6 +17,11 @@
 					</a>
 				</li>
 				<li>
+					<a href="<?= base_url('kirim') ?>" class="dropdown-toggle no-arrow">
+						<span class="micon dw dw-inbox-4"></span><span class="mtext">Pemesanan Barang</span>
+					</a>
+				</li>
+				<li>
 					<a href="<?= base_url('status_barang_admin') ?>" class="dropdown-toggle no-arrow">
 						<span class="micon dw dw-inbox-4"></span><span class="mtext">Barang Masuk</span>
 					</a>

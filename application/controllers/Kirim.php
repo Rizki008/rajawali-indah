@@ -17,9 +17,9 @@ class Kirim extends CI_Controller
 		$data = array(
 			'title' => 'Data Pengiriman Barang',
 			'list_kirim' => $this->m_kirim->list_kirim(),
-			'isi' => 'supplier/kirim/v_kirim'
+			'isi' => 'admin/kirim/v_kirim'
 		);
-		$this->load->view('supplier/layout/v_wrapper', $data, FALSE);
+		$this->load->view('admin/layout/v_wrapper', $data, FALSE);
 	}
 
 	// Add a new item
@@ -44,7 +44,6 @@ class Kirim extends CI_Controller
 		$data = array(
 			'id' => $this->input->post('id'),
 			'name' => $this->input->post('name'),
-			'price' => $this->input->post('price'),
 			'qty' => $this->input->post('qty'),
 		);
 		$this->cart->insert($data);
@@ -56,9 +55,9 @@ class Kirim extends CI_Controller
 	{
 		$data = array(
 			'title' => 'Kirim Barang',
-			'isi' => 'supplier/kirim/v_cart'
+			'isi' => 'admin/kirim/v_cart'
 		);
-		$this->load->view('supplier/layout/v_wrapper', $data, FALSE);
+		$this->load->view('admin/layout/v_wrapper', $data, FALSE);
 	}
 
 	public function update()
@@ -100,7 +99,7 @@ class Kirim extends CI_Controller
 		}
 		$this->session->set_flashdata('pesan', 'Pesanan Berhasil Diproses');
 		$this->cart->destroy();
-		redirect('status_barang');
+		redirect('status_barang_admin');
 	}
 }
 
