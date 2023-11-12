@@ -11,6 +11,7 @@ class Barang extends CI_Controller
 		$this->load->model('m_barang');
 		$this->load->model('m_user');
 		$this->load->model('m_kategori');
+		$this->load->model('m_notif');
 	}
 
 	// List all your items

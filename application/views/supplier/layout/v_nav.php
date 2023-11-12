@@ -1,3 +1,4 @@
+<?php $notif = $this->m_notif->barang(); ?>
 <div class="left-side-bar">
 	<div class="brand-logo">
 		<a href="index.html">
@@ -28,7 +29,7 @@
 				</li>
 				<li class="dropdown">
 					<a href="<?= base_url('barang/supplier') ?>" class="dropdown-toggle no-arrow">
-						<span class="micon dw dw-edit2"></span><span class="mtext">Kelola Barang</span>
+						<span class="micon dw dw-edit2"></span><span class="mtext">Kelola Barang</span><span class="badge badge-danger">[<?= $notif ?>]</span>
 					</a>
 				</li>
 			</ul>

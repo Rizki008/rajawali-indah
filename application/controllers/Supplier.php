@@ -9,7 +9,7 @@ class Supplier extends CI_Controller
 	{
 		parent::__construct();
 		//Load Dependencies
-
+		$this->load->model('m_notif');
 	}
 
 	// List all your items
