@@ -37,11 +37,31 @@ class Status_barang_admin extends CI_Controller
 	{
 		$data = array(
 			'id_barang_masuk' => $id_barang_masuk,
-			'status' => 3
+			'status' => 4
 		);
 		$this->m_status->update_status($data);
 		$this->session->set_flashdata('pesan', 'Berhasil dikonfirmasi');
-		redirect('status_barang_admin');
+		redirect('status_barang');
+	}
+
+	public function cek_bayar($no_pengiriman)
+	{
+		$data = array(
+			'title' => 'Detail Pembayaran',
+			'pembayaran' => $this->m_status->pembayaran($no_pengiriman),
+			'isi' => 'supplier/status/v_pembayaran'
+		);
+		$this->load->view('supplier/layout/v_wrapper', $data, FALSE);
+	}
+
+	public function detail($no_pengiriman)
+	{
+		$data = array(
+			'title' => 'Detail Pesana Barang',
+			'detail' => $this->m_status->detail($no_pengiriman),
+			'isi' => 'admin/status/v_detail'
+		);
+		$this->load->view('admin/layout/v_wrapper', $data, FALSE);
 	}
 }
 

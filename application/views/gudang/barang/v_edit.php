@@ -76,6 +76,12 @@
 						<input class="form-control" name="stock" placeholder="Stock Barang" value="<?= $details->stock ?>" type="number">
 					</div>
 				</div>
+				<!-- <div class="form-group row">
+					<label class="col-sm-12 col-md-2 col-form-label">Harga Sataun Barang</label>
+					<div class="col-md-10 col-sm-12">
+						<input class="form-control" name="harga" placeholder="Harga Barang" value="<?= $details->harga ?>" type="number">
+					</div>
+				</div> -->
 				<div class="form-group row">
 					<label class="col-sm-12 col-md-2 col-form-label">Deskripsi Barang</label>
 					<div class="col-sm-12 col-md-10">
@@ -89,7 +95,7 @@
 					</div>
 				</div>
 				<div class="form-group row">
-					<button type="submit" class="btn btn-success">Tambah Barang</button>&nbsp;
+					<button type="submit" class="btn btn-success">Update Barang</button>&nbsp;
 					<a href="<?= base_url('barang') ?>" class="btn btn-warning">Kembali</a>
 				</div>
 				</form>

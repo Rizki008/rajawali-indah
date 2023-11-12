@@ -40,6 +40,9 @@
 		$(".name").html($(this).find(':selected').attr('data-name'));
 		$(".name").val($(this).find(':selected').attr('data-name'));
 
+		$(".price").html($(this).find(':selected').attr('data-price'));
+		$(".price").val($(this).find(':selected').attr('data-price'));
+
 	});
 </script>
 

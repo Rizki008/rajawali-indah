@@ -32,9 +32,8 @@
 			<div class="card-box mb-30">
 				<div class="pd-20">
 					<h4 class="text-blue h4">Data Kategori</h4>
-					<p class="mb-0">Tambah Kategori Barang
-						<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Medium-modal" type="button">
-							<i class="fa fa-plus"></i></a>
+					<p class="mb-0">
+						<a href="#" data-toggle="modal" data-target="#Medium-modal"><button class="btn btn-primary" ><i class="fa fa-plus"></i> Tambah Kategori Barang</button></a></p>
 					</p>
 				</div>
 				<div class="pb-20">

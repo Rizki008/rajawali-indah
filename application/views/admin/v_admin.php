@@ -2,19 +2,19 @@
 	<div class="xs-pd-20-10 pd-ltr-20">
 		<div class="card-box pd-20 height-100-p mb-30">
 			<div class="row align-items-center">
-				<div class="col-md-4">
-					<img src="<?= base_url() ?>deskapp-master/vendors/images/banner-img.png" alt="">
+				<div class="col-md-2">
+					<img src="<?= base_url() ?>deskapp-master/vendors/images/rajawali1.png" alt="">
 				</div>
 				<div class="col-md-8">
 					<h4 class="font-20 weight-500 mb-10 text-capitalize">
 						Welcome back <div class="weight-600 font-30 text-blue"><?= $this->session->userdata('nama_user') ?>!</div>
 					</h4>
-					<p class="font-18 max-width-600">Admin Indah Jaya Mebeul</p>
+					<p class="font-18 max-width-600">Admin Rajawali Indah Mebeul</p>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-4 col-md-6 col-sm-12 mb-30">
+			<div class="col-lg-12 col-md-6 col-sm-12 mb-30">
 				<div class="card-box pd-30 pt-10 height-100-p">
 					<h2 class="mb-30 h4">Stock Barang</h2>
 					<div class="browser-visits">

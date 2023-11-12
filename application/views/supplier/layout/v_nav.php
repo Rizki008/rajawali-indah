@@ -26,6 +26,11 @@
 						<span class="micon dw dw-paper-plane"></span><span class="mtext">Pesanan Barang</span>
 					</a>
 				</li>
+				<li class="dropdown">
+					<a href="<?= base_url('barang/supplier') ?>" class="dropdown-toggle no-arrow">
+						<span class="micon dw dw-edit2"></span><span class="mtext">Kelola Barang</span>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>

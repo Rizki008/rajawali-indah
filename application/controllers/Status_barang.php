@@ -22,13 +22,35 @@ class Status_barang extends CI_Controller
 		$this->load->view('supplier/layout/v_wrapper', $data, FALSE);
 	}
 
-	public function kirim($id_barang_masuk)
+	public function kirim($no_pengiriman)
 	{
 		$data = array(
-			'id_barang_masuk' => $id_barang_masuk,
+			'no_pengiriman' => $no_pengiriman,
+			'no_resi' => $this->input->post('no_resi'),
 			'status' => 2
 		);
-		$this->m_status->update_status($data);
+		$this->m_status->update_kirim($data);
+		$this->session->set_flashdata('pesan', 'Berhasil dikonfirmasi');
+		redirect('status_barang');
+	}
+
+	public function detail($no_pengiriman)
+	{
+		$data = array(
+			'title' => 'Detail Pesana Barang',
+			'detail' => $this->m_status->detail($no_pengiriman),
+			'isi' => 'supplier/status/v_detail'
+		);
+		$this->load->view('supplier/layout/v_wrapper', $data, FALSE);
+	}
+
+	public function konfirmasi($no_pengiriman)
+	{
+		$data = array(
+			'no_pengiriman' => $no_pengiriman,
+			'status' => 1
+		);
+		$this->m_status->update_status_sup($data);
 		$this->session->set_flashdata('pesan', 'Berhasil dikonfirmasi');
 		redirect('status_barang');
 	}

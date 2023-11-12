@@ -37,6 +37,20 @@ class M_kirim extends CI_Model
 	{
 		$this->db->insert('barang_masuk', $data);
 	}
+	public function simpan_bayar($data)
+	{
+		$this->db->insert('pembayaran', $data);
+	}
+	public function bayar($data)
+	{
+		$this->db->where('no_pengiriman', $data['no_pengiriman']);
+		$this->db->update('pembayaran', $data);
+	}
+	public function update_status($data)
+	{
+		$this->db->where('no_pengiriman', $data['no_pengiriman']);
+		$this->db->update('barang_masuk', $data);
+	}
 }
 
 /* End of file M_barang.php */

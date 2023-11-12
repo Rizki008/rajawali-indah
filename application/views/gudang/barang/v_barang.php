@@ -23,7 +23,7 @@
 			<div class="card-box mb-30">
 				<div class="pd-20">
 					<h4 class="text-blue h4">Data Barang</h4>
-					<p class="mb-0">Silahkan tambahakan data barang : <a class="text-primary" href="<?= base_url('barang/add') ?>">Click Here</a></p>
+					<p class="mb-0"><a class="text-primary" href="<?= base_url('barang/add') ?>"><button class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Data Barang</button></a></p>
 				</div>
 				<div class="pb-20">
 					<table class="data-table table stripe hover nowrap">
@@ -35,6 +35,7 @@
 								<th>Nama Barang</th>
 								<th>Kategori Barang</th>
 								<th>Stock Barang</th>
+								<th>Harga Satuan Barang</th>
 								<th>Deskripsi Barang</th>
 								<th class="datatable-nosort">Action</th>
 							</tr>
@@ -51,6 +52,7 @@
 									<td><?= $value->nama_barang ?></td>
 									<td><?= $value->kategori_barang ?></td>
 									<td><?= $value->stock ?></td>
+									<td>Rp. <?= number_format($value->harga, 0) ?></td>
 									<td><?= $value->deskripsi ?></td>
 									<td>
 										<div class="dropdown">

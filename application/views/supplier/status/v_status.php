@@ -25,9 +25,10 @@
 				<table class="data-table table nowrap">
 					<thead>
 						<tr>
-							<th class="table-plus">Nama Barang</th>
-							<th>Kategori Barang</th>
-							<th>Jumlah Kirim</th>
+							<th class="table-plus">No Pesanan Barang</th>
+							<!-- <th>Kategori Barang</th> -->
+							<!-- <th>Jumlah Kirim</th> -->
+							<th>Total Harga Pesanan</th>
 							<th>Tanggal Proses</th>
 							<th>Status</th>
 							<th class="datatable-nosort">Actions</th>
@@ -38,16 +39,17 @@
 							<tr>
 								<td class="table-plus">
 									<div class="name-avatar d-flex align-items-center">
-										<div class="avatar mr-2 flex-shrink-0">
+										<!-- <div class="avatar mr-2 flex-shrink-0">
 											<img src="<?= base_url('assets/barang/' . $value->gambar) ?>" class="border-radius-100 shadow" width="40" height="40" alt="">
-										</div>
+										</div> -->
 										<div class="txt">
-											<div class="weight-600"><?= $value->nama_barang ?></div>
+											<div class="weight-600"><?= $value->no_pengiriman ?></div>
 										</div>
 									</div>
 								</td>
-								<td><?= $value->kategori_barang ?></td>
-								<td><?= $value->qty ?></td>
+								<!-- <td><?= $value->kategori_barang ?></td> -->
+								<!-- <td><?= $value->qty ?></td> -->
+								<td>Rp. <?= number_format($value->total_bayar, 0) ?></td>
 								<td><?= $value->tanggal_kirim ?></td>
 								<td>
 									<?php if ($value->status == '0') { ?>
@@ -57,15 +59,25 @@
 									<?php } elseif ($value->status == '2') { ?>
 										<span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">DiKirim</span>
 									<?php } elseif ($value->status == '3') { ?>
+										<span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">Selesai Pembayaran</span>
+									<?php } elseif ($value->status == '4') { ?>
 										<span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">Selesai</span>
 									<?php } ?>
 								</td>
 								<td>
 									<div class="table-actions">
 										<?php if ($value->status == '0') { ?>
-											<a href="<?= base_url('status_barang_admin/konfirmasi/' . $value->id_barang_masuk) ?>" data-color="#265ed7"><i class="fa fa-check-circle"></i>Konfirmasi</a>
+											<a href="<?= base_url('status_barang/detail/' . $value->no_pengiriman) ?>" class="btn btn-outline-warning"><i class="fa fa-check-circle"></i>Detail Pesanan</a>
 										<?php } elseif ($value->status == '1') { ?>
-											<a href="<?= base_url('status_barang/kirim/' . $value->id_barang_masuk) ?>" data-color="#265ed7"><i class="fa fa-send"></i>Kirim</a>
+											<a href="#" class="btn-block" data-color="#265ed7" data-toggle="modal" data-target="#Medium-modal<?= $value->no_pengiriman ?>" type="button">
+												<i class="fa fa-send"></i>Kirim
+											</a>
+											<!-- <a href="<?= base_url('status_barang/kirim/' . $value->id_barang_masuk) ?>" data-color="#265ed7"><i class="fa fa-send"></i>Kirim</a> -->
+										<?php } elseif ($value->status == '3') { ?>
+											<!-- <a href="#" class="btn-block" data-color="#265ed7" data-toggle="modal" data-target="#Medium-modal<?= $value->no_pengiriman ?>" type="button">
+												<i class="fa fa-dollar"></i>Cek Pembayaran
+											</a> -->
+											<a href="<?= base_url('status_barang_admin/cek_bayar/' . $value->no_pengiriman) ?>" class="btn btn-outline-success"><i class="fa fa-check-square"></i>Cek Pembayaran</a>
 										<?php } ?>
 									</div>
 								</td>
@@ -76,3 +88,26 @@
 			</div>
 			<!-- Simple Datatable End -->
 			<br>
+			<?php foreach ($masuk as $key => $modal) { ?>
+				<div class="modal fade" id="Medium-modal<?= $modal->no_pengiriman ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="myLargeModalLabel">Kirim Barang</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							</div>
+							<form action="<?= base_url('status_barang/kirim/' . $modal->no_pengiriman) ?>" method="POST">
+								<div class="modal-body">
+									<div class="form-group">
+										<input type="text" name="no_resi" class="form-control" placeholder="No pengiriman" required>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="submit" class="btn btn-primary">Kirim</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			<?php } ?>

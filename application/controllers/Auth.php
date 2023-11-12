@@ -44,11 +44,15 @@ class Auth extends CI_Controller
 
 	public function reset($id_user = NULL)
 	{
-		$this->form_validation->set_rules('password', 'Password', 'required|min_length[8]||regex_match[/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/]', array(
+		$this->form_validation->set_rules('password', 'Password', 'required|min_length[8]', array(
 			'required' => '%s Mohon untuk diisi!!!',
 			'min_length' => '%s Password Minimal 8',
-			'regex_match' => '%s Password Harus Gabungan Huruf Besar, Angka Dan Hurup Kecil'
 		));
+		// $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]||regex_match[/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/]', array(
+		// 	'required' => '%s Mohon untuk diisi!!!',
+		// 	'min_length' => '%s Password Minimal 8',
+		// 	'regex_match' => '%s Password Harus Gabungan Huruf Besar, Angka Dan Hurup Kecil'
+		// ));
 		$this->form_validation->set_rules('ulangi_password', 'Ulangi Password Pelanggan', 'required|matches[password]', array(
 			'required' => '%s Mohon Untuk Diisi !!!',
 			'matches' => '%s Password Tidak Sama !!!'

@@ -25,12 +25,13 @@
 				<table class="data-table table nowrap">
 					<thead>
 						<tr>
-							<th class="table-plus">Nama Barang</th>
-							<th>Kategori Barang</th>
-							<th>Jumlah Pesanan</th>
+							<th class="table-plus">Nama Pesanan</th>
+							<!-- <th>Kategori Barang</th> -->
+							<!-- <th>Jumlah Pesanan</th> -->
+							<th>Total Harga Pesanan</th>
 							<th>Tanggal Proses</th>
 							<th>Status</th>
-							<!-- <th class="datatable-nosort">Actions</th> -->
+							<th class="datatable-nosort">Actions</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -38,33 +39,36 @@
 							<tr>
 								<td class="table-plus">
 									<div class="name-avatar d-flex align-items-center">
-										<div class="avatar mr-2 flex-shrink-0">
+										<!-- <div class="avatar mr-2 flex-shrink-0">
 											<img src="<?= base_url('assets/barang/' . $value->gambar) ?>" class="border-radius-100 shadow" width="40" height="40" alt="">
-										</div>
+										</div> -->
 										<div class="txt">
-											<div class="weight-600"><?= $value->nama_barang ?></div>
+											<div class="weight-600"><?= $value->no_pengiriman ?></div>
 										</div>
 									</div>
 								</td>
-								<td><?= $value->kategori_barang ?></td>
-								<td><?= $value->qty ?></td>
+								<!-- <td><?= $value->kategori_barang ?></td> -->
+								<!-- <td><?= $value->qty ?></td> -->
+								<td>Rp. <?= number_format($value->total_bayar, 0) ?></td>
 								<td><?= $value->tanggal_kirim ?></td>
 								<td>
 									<?php if ($value->status == '0') { ?>
 										<span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">Menunggu Konfirmasi</span>
 									<?php } elseif ($value->status == '1') { ?>
-										<span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">Dikonfirmasi</span>
+										<span class="badge badge-pill" data-bgcolor="#ADFF2F" data-color="#265ed7">Dikonfirmasi</span>
 									<?php } elseif ($value->status == '2') { ?>
-										<span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">Kirim</span>
+										<span class="badge badge-pill" data-bgcolor="#FFD700" data-color="#265ed7">Sedang Dikirim</span>
 									<?php } elseif ($value->status == '3') { ?>
-										<span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">Selesai</span>
+										<span class="badge badge-pill" data-bgcolor="#7FFF00" data-color="#265ed7">Selesai Bayar</span>
+									<?php } elseif ($value->status == '4') { ?>
+										<span class="badge badge-pill" data-bgcolor="#7FFF00" data-color="#265ed7">Selesai Diterima</span>
 									<?php } ?>
 								</td>
 								<td>
 									<div class="table-actions">
 										<?php if ($value->status == 2) { ?>
-											<a href="<?= base_url('status_barang_admin/selesai/' . $value->id_barang_masuk) ?>" data-color="#265ed7"><i class="fa fa-check-square"></i>Selesai</a>
-										<?php } ?>
+											<a href="<?= base_url('status_barang_admin/detail/' . $value->no_pengiriman) ?>" class="btn btn-warning btn-sm"><i class="fa fa-check-circle-o"></i>Detail Pesanan</a>
+										<?php }  ?>
 									</div>
 								</td>
 							</tr>

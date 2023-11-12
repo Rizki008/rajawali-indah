@@ -49,7 +49,7 @@
 														'value' => $items['qty'],
 														'maxlength' => '3',
 														'min' => '0',
-														'max' => 'stock',
+														'max' => $items['stock'],
 														'size' => '5',
 														'type' => 'number',
 														'class' => 'form-control'
@@ -88,6 +88,7 @@
 						echo form_hidden('qty' . $i++, $items['qty']);
 					}
 					?>
+					<input type="hidden" name="total_bayar" value="<?= $this->cart->total() ?>">
 					<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
 						&nbsp;&nbsp;
 						<button type="submit" class="btn btn-success">Kirim Barang</button>

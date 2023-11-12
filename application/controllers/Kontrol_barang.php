@@ -39,7 +39,7 @@ class Kontrol_barang extends CI_Controller
 			'id' => $this->input->post('id'),
 			'qty' => $this->input->post('qty'),
 			'name' => $this->input->post('name'),
-			'price' => 0,
+			'price' => $this->input->post('price'),
 		);
 		$this->cart->insert($data);
 		$this->session->set_flashdata('pesan', 'Berhasil');
@@ -60,6 +60,12 @@ class Kontrol_barang extends CI_Controller
 			$this->m_barang->kirim_barang($data);
 		}
 		$this->cart->destroy();
+		redirect('kontrol_barang/keluar');
+	}
+
+	public function delete($rowid)
+	{
+		$this->cart->remove($rowid);
 		redirect('kontrol_barang/keluar');
 	}
 }

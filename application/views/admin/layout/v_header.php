@@ -78,7 +78,7 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="<?= base_url() ?>deskapp-master/vendors/images/photo1.jpg" alt="">
+							<img src="<?= base_url() ?>deskapp-master/vendors/images/user.png" alt="">
 						</span>
 						<span class="user-name"><?= $this->session->userdata('nama_user'); ?></span>
 					</a>

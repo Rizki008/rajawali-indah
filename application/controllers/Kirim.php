@@ -31,7 +31,8 @@ class Kirim extends CI_Controller
 			'id' => $this->input->post('id'),
 			'qty' => $this->input->post('qty'),
 			'name' => $this->input->post('name'),
-			'price' => '0'
+			'price' => $this->input->post('price'),
+			'stock' => $this->input->post('stock'),
 		);
 		$this->cart->insert($data);
 		$this->session->set_flashdata('pesan', 'Berhasil');
@@ -97,9 +98,55 @@ class Kirim extends CI_Controller
 			);
 			$this->m_kirim->kirim($data);
 		}
+
+		// simpan ke tabel pembayaran
+		$data_bayar = array(
+			'no_pengiriman' => $this->input->post('no_pengiriman'),
+			'id_user' => $this->session->userdata('id_user'),
+			'total_bayar' => $this->input->post('total_bayar'),
+			'bukti_bayar' => 0,
+			'pembayaran' => 0,
+			'status_bayar' => 'belum bayar',
+		);
+		$this->m_kirim->simpan_bayar($data_bayar);
+
 		$this->session->set_flashdata('pesan', 'Pesanan Berhasil Diproses');
 		$this->cart->destroy();
 		redirect('status_barang_admin');
+	}
+
+	public function bayar($no_pengiriman)
+	{
+		if ($this->form_validation->run() == FALSE) {
+			$config['upload_path'] = './assets/transaksi';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg|ico';
+			$config['max_size']     = '2000';
+			$this->upload->initialize($config);
+			$field_name = "bukti_bayar";
+			if (!$this->upload->do_upload($field_name)) {
+			} else {
+				$upload_data = array('uploads' => $this->upload->data());
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = './assets/transaksi' . $upload_data['uploads']['file_name'];
+				$this->load->library('image_lib', $config);
+				$data = array(
+					'no_pengiriman' => $no_pengiriman,
+					'id_user' => $this->session->userdata('id_user'),
+					'pembayaran' => $this->input->post('pembayaran'),
+					'status_bayar' => 'sudah bayar',
+					'bukti_bayar' => $upload_data['uploads']['file_name'],
+				);
+				$this->m_kirim->bayar($data);
+
+				$data = array(
+					'no_pengiriman' => $no_pengiriman,
+					'status' => 3
+				);
+				$this->m_kirim->update_status($data);
+				$this->session->set_flashdata('pesan', 'Data Berhasil DiUpload !!!');
+				redirect('status_barang_admin');
+			}
+		}
 	}
 }
 

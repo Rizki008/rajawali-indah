@@ -36,6 +36,7 @@
 								<th>Nama Supplier</th>
 								<th>Kategori Barang</th>
 								<th>Stock Barang</th>
+								<th>Harga Barang</th>
 								<th class="datatable-nosort">Action</th>
 							</tr>
 						</thead>
@@ -47,6 +48,8 @@
 										<input type="hidden" name="name" value="<?= $value->nama_barang ?>">
 										<input type="hidden" name="id" value="<?= $value->id_barang ?>">
 										<input type="hidden" name="qty" value="1">
+										<input type="hidden" name="price" value="<?= $value->harga ?>">
+										<input type="hidden" name="stock" value="<?= $value->stock ?>">
 										<td class="table-plus"><?= $no++ ?></td>
 										<td>
 											<img src="<?= base_url('/assets/barang/' . $value->gambar) ?>" width="70" height="70" alt="">
@@ -55,6 +58,7 @@
 										<td><?= $value->nama_user ?></td>
 										<td><?= $value->kategori_barang ?></td>
 										<td><?= $value->stock ?></td>
+										<td>Rp. <?= number_format($value->harga, 0) ?></td>
 										<td>
 											<div class="table-actions">
 												<?php if ($value->stock >= 21) { ?>

@@ -31,6 +31,11 @@
 						<span class="micon dw dw-paper-plane"></span><span class="mtext">Barang Keluar</span>
 					</a>
 				</li>
+				<li>
+					<a href="<?= base_url('laporan') ?>" class="dropdown-toggle no-arrow">
+						<span class="micon dw dw-book"></span><span class="mtext">Laporan Barang</span>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>

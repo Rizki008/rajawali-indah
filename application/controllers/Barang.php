@@ -30,6 +30,7 @@ class Barang extends CI_Controller
 		$this->form_validation->set_rules('id_kategori', 'Kategori Barang', 'required', array('required' => '%s Mohon untuk diisi!!!'));
 		$this->form_validation->set_rules('id_user', 'Supplier Barang', 'required', array('required' => '%s Mohon untuk diisi!!!'));
 		$this->form_validation->set_rules('stock', 'Stock Barang', 'required', array('required' => '%s Mohon untuk diisi!!!'));
+		// $this->form_validation->set_rules('harga', 'Harga Barang', 'required', array('required' => '%s Mohon untuk diisi!!!'));
 		$this->form_validation->set_rules('deskripsi', 'Deskripsi Barang', 'required', array('required' => '%s Mohon untuk diisi!!!'));
 
 		if ($this->form_validation->run() == TRUE) {
@@ -57,6 +58,7 @@ class Barang extends CI_Controller
 					'id_kategori' => $this->input->post('id_kategori'),
 					'id_user' => $this->input->post('id_user'),
 					'stock' => $this->input->post('stock'),
+					'harga' => '0',
 					'deskripsi' => $this->input->post('deskripsi'),
 					'gambar' => $upload_data['uploads']['file_name'],
 				);
@@ -79,6 +81,7 @@ class Barang extends CI_Controller
 		$this->form_validation->set_rules('id_kategori', 'Kategori Barang', 'required', array('required' => '%s Mohon untuk diisi!!!'));
 		$this->form_validation->set_rules('id_user', 'Supplier Barang', 'required', array('required' => '%s Mohon untuk diisi!!!'));
 		$this->form_validation->set_rules('stock', 'Stock Barang', 'required', array('required' => '%s Mohon untuk diisi!!!'));
+		// $this->form_validation->set_rules('harga', 'Harga Barang', 'required', array('required' => '%s Mohon untuk diisi!!!'));
 		$this->form_validation->set_rules('deskripsi', 'Deskripsi Barang', 'required', array('required' => '%s Mohon untuk diisi!!!'));
 
 		if ($this->form_validation->run() == TRUE) {
@@ -114,6 +117,7 @@ class Barang extends CI_Controller
 					'id_kategori' => $this->input->post('id_kategori'),
 					'id_user' => $this->input->post('id_user'),
 					'stock' => $this->input->post('stock'),
+					'harga' => '0',
 					'deskripsi' => $this->input->post('deskripsi'),
 					'gambar' => $upload_data['uploads']['file_name'],
 				);
@@ -127,6 +131,7 @@ class Barang extends CI_Controller
 				'id_kategori' => $this->input->post('id_kategori'),
 				'id_user' => $this->input->post('id_user'),
 				'stock' => $this->input->post('stock'),
+				'harga' => '0',
 				'deskripsi' => $this->input->post('deskripsi'),
 			);
 			$this->m_barang->update($data);
@@ -157,6 +162,49 @@ class Barang extends CI_Controller
 		$this->m_barang->delete($data);
 		$this->session->set_flashdata('pesan', 'Barang berhasil dihapus!!!');
 		redirect('barang');
+	}
+
+	// supplier 
+	public function supplier()
+	{
+		$data = array(
+			'title' => 'Kelola Barang',
+			'barang' => $this->m_barang->barang_supplier(),
+			'isi' => 'supplier/barang/v_barang'
+		);
+		$this->load->view('supplier/layout/v_wrapper', $data, FALSE);
+	}
+
+	public function update_supplier($id_barang = NULL)
+	{
+		$this->form_validation->set_rules('harga', 'Harga Barang', 'required', array('required' => '%s Mohon untuk diisi!!!'));
+
+		if ($this->form_validation->run() == FALSE) {
+			$data = array(
+				'title' => 'Update Harga barang',
+				'kategori' => $this->m_kategori->kategori(),
+				'user' => $this->m_user->user_supplier(),
+				'details' => $this->m_barang->details($id_barang),
+				'isi' => 'supplier/barang/v_edit'
+			);
+			$this->load->view('supplier/layout/v_wrapper', $data, FALSE);
+		} else {
+			$data = array(
+				'id_barang' => $id_barang,
+				'harga' => $this->input->post('harga'),
+			);
+			$this->m_barang->update($data);
+			$this->session->set_flashdata('pesan', 'Data barang berhasil ditambahkan');
+			redirect('barang/supplier');
+		}
+		$data = array(
+			'title' => 'Tambah data barang',
+			'kategori' => $this->m_kategori->kategori(),
+			'user' => $this->m_user->user_supplier(),
+			'details' => $this->m_barang->details($id_barang),
+			'isi' => 'supplier/barang/v_edit'
+		);
+		$this->load->view('supplier/layout/v_wrapper', $data, FALSE);
 	}
 }
 

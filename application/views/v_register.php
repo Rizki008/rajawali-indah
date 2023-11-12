@@ -7,9 +7,9 @@
 	<title><?= $title ?></title>
 
 	<!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="<?= base_url() ?>deskapp-master/vendors/images/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="<?= base_url() ?>deskapp-master/vendors/images/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>deskapp-master/vendors/images/favicon-16x16.png">
+	<link rel="rajawali1" sizes="180x180" href="<?= base_url() ?>deskapp-master/vendors/images/rajawali1.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?= base_url() ?>deskapp-master/vendors/images/rajawali1.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>deskapp-master/vendors/images/rajawali1.png">
 
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -45,7 +45,7 @@
 			</div>
 			<div class="login-menu">
 				<ul>
-					<li><a href="<?= base_url('auth/login') ?>">Login</a></li>
+					<li><a href="<?= base_url('auth/login') ?>">Register</a></li>
 				</ul>
 			</div>
 		</div>
@@ -59,7 +59,7 @@
 				<div class="col-md-6 col-lg-5">
 					<div class="login-box bg-white box-shadow border-radius-10">
 						<div class="login-title">
-							<h2 class="text-center text-primary">Login To Sistem</h2>
+							<h2 class="text-center text-primary">Register To Sistem</h2>
 						</div>
 						<?php
 						echo validation_errors('<div class="alert alert-warning alert-dismissible">

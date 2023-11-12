@@ -48,12 +48,12 @@
 								<select name="id" id="pesan_barang" class="form-control">
 									<option>---Pilih Barang---</option>
 									<?php foreach ($barang as $key => $value) { ?>
-										<option value="<?= $value->id_barang ?>" data-name="<?= $value->nama_barang ?>"><?= $value->nama_barang ?></option>
+										<option value="<?= $value->id_barang ?>" data-name="<?= $value->nama_barang ?>" data-price="<?= $value->harga ?>"><?= $value->nama_barang ?></option>
 									<?php } ?>
 								</select>
 							</div>
 							<div class="form-group has-warning">
-								<label class="form-control-label">Qty</label>
+								<label class="form-control-label">Jumlah</label>
 								<input type="number" name="qty" class="form-control form-control-warning">
 							</div>
 
@@ -83,6 +83,8 @@
 							<tr>
 								<th scope="col">Nama Barang</th>
 								<th scope="col">Jumlah Barang Keluar</th>
+								<th scope="col">Harga Satuan Barang Keluar</th>
+								<th scope="col">Total Harga Barang Keluar</th>
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
@@ -92,6 +94,8 @@
 								<tr>
 									<td class="table-plus"><?= $value['name'] ?></td>
 									<td><?= $value['qty'] ?></td>
+									<td>Rp. <?= number_format($value['price'], 0) ?></td>
+									<td>Rp. <?= number_format($value['price'] * $value['qty'], 0) ?></td>
 									<td><a href="<?= base_url('kontrol_barang/delete/' . $value['rowid']) ?>" data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i></a></td>
 								</tr>
 							<?php } ?>
@@ -126,6 +130,8 @@
 								<th>No Keluar</th>
 								<th>Nama Barang</th>
 								<th>Jumlah Keluar Barang</th>
+								<th>Harga Barang Keluar</th>
+								<th>Total Harga Barang Keluar</th>
 								<th>Status Barang</th>
 								<th class="datatable-nosort">Tanggal Keluar</th>
 							</tr>
@@ -139,6 +145,8 @@
 									<td><?= $minst->no_keluar ?></td>
 									<td><?= $minst->nama_barang ?></td>
 									<td><?= $minst->qty ?></td>
+									<td>Rp. <?= number_format($minst->harga, 0) ?></td>
+									<td>Rp. <?= number_format($minst->harga * $minst->qty, 0) ?></td>
 									<td><span class="badge badge-danger"><?= $minst->status ?></span></td>
 									<td><?= $minst->tanggal_keluar ?></td>
 								</tr>
