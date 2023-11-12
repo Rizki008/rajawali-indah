@@ -13,33 +13,46 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-12 col-md-6 col-sm-12 mb-30">
-				<div class="card-box pd-30 pt-10 height-100-p">
-					<h2 class="mb-30 h4">Stock Barang</h2>
-					<div class="browser-visits">
-						<ul>
-							<?php foreach ($barang as $key => $value) { ?>
-								<li class="d-flex flex-wrap align-items-center">
-									<div class="icon"><img src="<?= base_url('assets/barang/' . $value->gambar) ?>" alt=""></div>
-									<div class="browser-name"><?= $value->nama_barang ?></div>
-									<?php if ($value->stock >= 50) { ?>
-										<div class="visit"><span class="badge badge-pill badge-primary">Penuh</span></div>
-									<?php } elseif ($value->stock <= 50) { ?>
-										<div class="visit"><span class="badge badge-pill badge-warning">Sedang</span></div>
-									<?php } elseif ($value->stock <= 20) { ?>
-										<div class="visit"><span class="badge badge-pill badge-danger">Kurang</span></div>
-									<?php } ?>
-								</li>
-							<?php } ?>
-						</ul>
-					</div>
+		<div class="pd-20 card-box mb-30">
+			<div class="clearfix mb-20">
+				<div class="pull-left">
+					<h4 class="text-blue h4">Stock Barang</h4>
 				</div>
 			</div>
-			<!-- <div class="col-lg-8 col-md-6 col-sm-12 mb-30">
-				<div class="card-box pd-30 pt-10 height-100-p">
-					<h2 class="mb-30 h4">World Map</h2>
-					<div id="browservisit" style="width:100%!important; height:380px"></div>
-				</div>
-			</div> -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Nama Barang</th>
+						<th scope="col">Stock</th>
+						<th scope="col">Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($barang as $key => $value) { ?>
+						<tr>
+							<th scope="row"><img src="<?= base_url('assets/barang/' . $value->gambar) ?>" width="70" height="70" alt=""></th>
+							<td><?= $value->nama_barang ?></td>
+							<td>
+								<?php if ($value->stock >= 50) { ?>
+									<span class="badge badge-pill badge-primary"><?= $value->stock ?></span>
+								<?php } elseif ($value->stock >= 20 && $value->stock <= 50) { ?>
+									<span class="badge badge-pill badge-warning"><?= $value->stock ?></span>
+								<?php } elseif ($value->stock <= 20) { ?>
+									<span class="badge badge-pill badge-danger"><?= $value->stock ?></span>
+								<?php } ?>
+							</td>
+							<td>
+								<?php if ($value->stock >= 50) { ?>
+									<span class="badge badge-pill badge-primary">Penuh</span>
+								<?php } elseif ($value->stock >= 20 && $value->stock <= 50) { ?>
+									<span class="badge badge-pill badge-warning">Sedang</span>
+								<?php } elseif ($value->stock <= 20) { ?>
+									<span class="badge badge-pill badge-danger">Pesan Barang</span><a href="<?= base_url('kirim') ?>" class="fa fa-send-o"></a>
+								<?php } ?>
+							</td>
+						</tr>
+					<?php } ?>
+				</tbody>
+			</table>
 		</div>

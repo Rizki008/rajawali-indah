@@ -10,6 +10,7 @@ class Supplier extends CI_Controller
 		parent::__construct();
 		//Load Dependencies
 		$this->load->model('m_notif');
+		$this->load->model('m_barang');
 	}
 
 	// List all your items
@@ -17,6 +18,7 @@ class Supplier extends CI_Controller
 	{
 		$data = array(
 			'title' => 'Indah Jaya Mebeul',
+			'barang' => $this->m_barang->barang(),
 			'isi' => 'supplier/v_supplier'
 		);
 		$this->load->view('supplier/layout/v_wrapper', $data, FALSE);
