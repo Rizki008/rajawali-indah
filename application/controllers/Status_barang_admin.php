@@ -9,6 +9,7 @@ class Status_barang_admin extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('m_status');
+		$this->load->model('m_notif');
 	}
 
 	// List all your items

@@ -49,7 +49,7 @@
 														'value' => $items['qty'],
 														'maxlength' => '3',
 														'min' => '0',
-														'max' => $items['stock'],
+														// 'max' => $items['stock'],
 														'size' => '5',
 														'type' => 'number',
 														'class' => 'form-control'
